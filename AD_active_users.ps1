@@ -1,0 +1,2 @@
+﻿import-module ActiveDirectory
+Get-ADUser -filter * -Properties * -Server central | where {$_.distinguishedName -like "*OU=Users,OU=SD Partners,OU=Branches,OU=Volia,DC=central,DC=co,DC=volia,DC=com"} | select displayname,GivenName,sn,userprincipalname,sAMAccountName,objectSid | export-csv -Path SDacc.csv -Encoding UTF8
